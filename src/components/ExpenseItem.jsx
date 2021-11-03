@@ -3,9 +3,10 @@ import "./ExpenseItem.css";
 
 
 const ExpenseItem = props => {
+    const date = props.date;
     return (
         <div className="expense-item"> 
-            <ExpenseDate />
+            <ExpenseDate date={date}/>
             <h2 className="expense-item__description">
                 { props.title }
             </h2>

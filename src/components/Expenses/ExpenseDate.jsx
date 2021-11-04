@@ -1,10 +1,12 @@
-import Card from "./Card";
+import React from 'react';
+
+import Card from "../UI/Card";
 import "./ExpenseDate.css";
 
 const ExpenseDate = ( props ) => {
-    const month = props.date.toLocaleString("en-US", { month : "long" });
-    const year = props.date.getFullYear();
-    const day = props.date.toLocaleString("en-US", { day : "2-digit"});
+    let month = props.date.toLocaleString("en-US", { month : "long" });
+    let year = props.date.getFullYear();
+    let day = props.date.toLocaleString("en-US", { day : "2-digit"});
     
 
     return (

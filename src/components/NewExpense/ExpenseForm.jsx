@@ -5,8 +5,13 @@ const ExpenseForm = (props) => {
     const [ enteredAmount, setEnteredAmount ] = useState('');
     const [ enteredDate, setEnteredDate ] = useState('');
     const [ enteredTitle, setEnteredTitle ] = useState('');
-        
+    const [ showForm, setShowForm] = useState(false);
     
+    //Handlers for Add New Expense and Cancel Buttons
+    const addExpenseClickHandler = () => setShowForm(true);   
+    const cancelHandler = () => setShowForm(false);
+    
+    //Handlers for form entry
     const titleChangeHandler = (event) => {
         setEnteredTitle(event.target.value)};
 
@@ -16,6 +21,8 @@ const ExpenseForm = (props) => {
     const dateChangeHandler = (event) => {
         setEnteredDate(event.target.value)};
 
+
+    //Handler for form submission
     const submitHandler = (event) => {
         event.preventDefault();
 
@@ -30,6 +37,14 @@ const ExpenseForm = (props) => {
         setEnteredDate('');
         setEnteredAmount('');
         
+    };
+    
+    
+    //Conditionally based on showForm state
+    if (showForm === false){
+        return (
+            <button onClick={ addExpenseClickHandler }>Add New Expense</button>
+        )
     };
 
     return (
@@ -49,6 +64,7 @@ const ExpenseForm = (props) => {
             </div>
         </div>
         <div className="new-expense__actions">
+            <button className="new_expense__cancel" onClick={ cancelHandler }>Cancel</button>
             <button type="submit">Add Expense</button>
         </div>
     </form>
